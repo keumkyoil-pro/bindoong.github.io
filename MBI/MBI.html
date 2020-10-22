@@ -1,0 +1,331 @@
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset-"utf-8">
+    <title>MBI 자동계산(Modified Barthel Index)</title>
+    <link rel="stylesheet" href="MBI.css">
+    <script src="MBI.js"></script>
+  </head>
+  <body>
+
+  <h3>MBI (Modified Barthel Index) 자동계산 프로그램</h3>
+
+    <table class="table1" border="1">
+        <colgroup>
+            <col style="width:12%">
+            <col style="width:21%">
+            <col style="width:12%">
+            <col style="width:21%">
+            <col style="width:12%">
+            <col style="width:21%">
+        </colgroup>
+        <tr>
+            <td>성&nbsp;&nbsp;명</td>
+            <td>
+              <input type="text" name="name" style="width:90%; border:0;">
+            </td>
+            <td>등록번호</td>
+            <td>
+              <input type="text" name="number" style="width:90%; border:0;">
+            </td>
+            <td>생년월일</td>
+            <td>
+              <input type="text" name="birth" style="width:90%; border:0;">
+            </td>
+        </tr>
+        <tr>
+            <td>진료과</td>
+            <td>
+              <input type="text" name="medipart" style="width:90%; border:0;">
+            </td>
+            <td>검사일시</td>
+            <td>
+              <input type="text" name="date" style="width:90%; border:0;">
+            </td>
+            <td>검사자</td>
+            <td>
+              <input type="text" name="therapist" style="width:90%; border:0;">
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+  <form>
+    <table class="table2" border="1">
+        <colgroup>
+            <col style="width:25%">
+            <col style="width:9%">
+            <col style="width:9%">
+            <col style="width:9%">
+            <col style="width:9%">
+            <col style="width:9%">
+            <col style="width:30%">
+        </colgroup>
+        <tr>
+            <td><div class="topline">항목</div></td>
+            <td>Total</td>
+            <td>Severe</td>
+            <td>Moderate</td>
+            <td>Mild</td>
+            <td>Minimal</td>
+            <td>Comment</td>
+        </tr>
+        <tr>
+            <td>Personal hygiene<br>(개인위생)</td>
+            <td>
+              <input type="radio" name="PH" value="0" checked>0
+            </td>
+            <td>
+              <input type="radio" name="PH" value="1" >1
+            </td>
+            <td>
+              <input type="radio" name="PH" value="3" >3
+            </td>
+            <td>
+              <input type="radio" name="PH" value="4" >4
+            </td>
+            <td>
+              <input type="radio" name="PH" value="5" >5
+            </td>
+            <td>
+              <input type="text" name="pcomment" style="width:90%; border:0;">
+            </td>
+        </tr>
+        <tr>
+            <td>Bathing self<br>(목욕하기)</td>
+            <td>
+              <input type="radio" name="BS" value="0" checked>0
+            </td>
+            <td>
+              <input type="radio" name="BS" value="1" >1
+            </td>
+            <td>
+              <input type="radio" name="BS" value="3" >3
+            </td>
+            <td>
+              <input type="radio" name="BS" value="4" >4
+            </td>
+            <td>
+              <input type="radio" name="BS" value="5" >5
+            </td>
+            <td>
+              <input type="text" name="bcomment" style="width:90%; border:0;">
+            </td>
+        </tr>
+        <tr>
+          <td>Feeding<br>(식사하기)</td>
+          <td>
+            <input type="radio" name="FE" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="FE" value="2" >2
+          </td>
+          <td>
+            <input type="radio" name="FE" value="5" >5
+          </td>
+          <td>
+            <input type="radio" name="FE" value="8" >8
+          </td>
+          <td>
+            <input type="radio" name="FE" value="10" >10
+          </td>
+          <td>
+            <input type="text" name="fcomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+            <td>Toilet<br>(용변처리)</td>
+            <td>
+              <input type="radio" name="TO" value="0" checked>0
+            </td>
+            <td>
+              <input type="radio" name="TO" value="2" >2
+            </td>
+            <td>
+              <input type="radio" name="TO" value="5" >5
+            </td>
+            <td>
+              <input type="radio" name="TO" value="8" >8
+            </td>
+            <td>
+              <input type="radio" name="TO" value="10" >10
+            </td>
+            <td>
+              <input type="text" name="tcomment" style="width:90%; border:0;">
+            </td>
+        </tr>
+        <tr>
+          <td>Stair Climbing<br>(계단 오르내리기)</td>
+          <td>
+            <input type="radio" name="SC" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="SC" value="2" >2
+          </td>
+          <td>
+            <input type="radio" name="SC" value="5" >5
+          </td>
+          <td>
+            <input type="radio" name="SC" value="8" >8
+          </td>
+          <td>
+            <input type="radio" name="SC" value="10" >10
+          </td>
+          <td>
+            <input type="text" name="scomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+          <td>Dressing<br>(옷 입기)</td>
+          <td>
+            <input type="radio" name="DR" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="DR" value="2" >2
+          </td>
+          <td>
+            <input type="radio" name="DR" value="5" >5
+          </td>
+          <td>
+            <input type="radio" name="DR" value="8" >8
+          </td>
+          <td>
+            <input type="radio" name="DR" value="10" >10
+          </td>
+          <td>
+            <input type="text" name="dcomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+          <td>Bowel control<br>(배변조절)</td>
+          <td>
+            <input type="radio" name="BO" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="BO" value="2" >2
+          </td>
+          <td>
+            <input type="radio" name="BO" value="5" >5
+          </td>
+          <td>
+            <input type="radio" name="BO" value="8" >8
+          </td>
+          <td>
+            <input type="radio" name="BO" value="10" >10
+          </td>
+          <td>
+            <input type="text" name="bocomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+          <td>Bladder control<br>(배뇨조절)</td>
+          <td>
+            <input type="radio" name="BL" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="BL" value="2" >2
+          </td>
+          <td>
+            <input type="radio" name="BL" value="5" >5
+          </td>
+          <td>
+            <input type="radio" name="BL" value="8" >8
+          </td>
+          <td>
+            <input type="radio" name="BL" value="10" >10
+          </td>
+          <td>
+            <input type="text" name="blcomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+          <td>Ambulation/Wheelchair<br>(보행/휠체어)</td>
+          <td>
+            <input type="radio" name="AW" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="AW" value="3" >3(1)
+          </td>
+          <td>
+            <input type="radio" name="AW" value="8" >8(3)
+          </td>
+          <td>
+            <input type="radio" name="AW" value="12" >12(4)
+          </td>
+          <td>
+            <input type="radio" name="AW" value="15" >15(5)
+          </td>
+          <td>
+            <input type="text" name="acomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+          <td>Chair/Bed transfer<br>(의자/침대 이동)</td>
+          <td>
+            <input type="radio" name="CB" value="0" checked>0
+          </td>
+          <td>
+            <input type="radio" name="CB" value="3" >3
+          </td>
+          <td>
+            <input type="radio" name="CB" value="8" >8
+          </td>
+          <td>
+            <input type="radio" name="CB" value="12" >12
+          </td>
+          <td>
+            <input type="radio" name="CB" value="15" >15
+          </td>
+          <td>
+            <input type="text" name="ccomment" style="width:90%; border:0;">
+          </td>
+        </tr>
+        <tr>
+            <td><div class="bottomline">Total Score</div></td>
+            <td colspan="5" style="background-color:rgb(22, 142, 37)">
+              <input type="reset" value="점수초기화" onclick="
+                Reset();
+              ">&nbsp;&nbsp;&nbsp;
+              <input type="button" value="MBI 점수" onclick="
+                result();
+              ">
+            </td>
+            <td id='Globalscore'>0
+            </td>
+        </tr>
+    </table>
+  </form>
+
+    <br>
+
+    <table class="table3" border="1" >
+        <tr>
+            <td>MBI score</td>
+            <td>Dependency level</td>
+        </tr>
+        <tr class="total">
+            <td>0-24</td>
+            <td>Total</td>
+        </tr>
+        <tr class="severe">
+            <td>25-49</td>
+            <td>Severe</td>
+        </tr>
+        <tr class="moderate">
+            <td>50-74</td>
+            <td>Moderate</td>
+        </tr>
+        <tr class="mild">
+            <td>75-90</td>
+            <td>Mild</td>
+        </tr>
+        <tr class="minimal">
+            <td>91-99</td>
+            <td>Minimal</td>
+        </tr>
+    </table>
+    <br>
+    <div align="right" style="color:rgb(34, 133, 87);">Ver 1.0&nbsp;&nbsp;</div>
+    <div align="right" style="color:purple;"> made by bindoongbindoong&nbsp;&nbsp;</div>
