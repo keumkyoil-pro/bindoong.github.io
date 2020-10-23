@@ -8,6 +8,13 @@ function Reset() {
   document.getElementsByClassName('moderate')[0].style.backgroundColor = 'white';
   document.getElementsByClassName('mild')[0].style.backgroundColor = 'white';
   document.getElementsByClassName('minimal')[0].style.backgroundColor = 'white';
+
+  document.getElementById('AW0').setAttribute("value","0");
+  document.getElementById('AW3').setAttribute("value","3");
+  document.getElementById('AW8').setAttribute("value","8");
+  document.getElementById('AW12').setAttribute("value","12");
+  document.getElementById('AW15').setAttribute("value","15");
+  document.getElementById('AWrow').style.color = 'black';
 }
 
 function result() {
@@ -98,4 +105,13 @@ function result() {
       } else {
           document.getElementsByClassName('minimal')[0].style.backgroundColor = 'rgb(254, 240, 58)';
       }
+}
+
+function Wheelchair() {
+  document.getElementById('AW0').setAttribute("value","0");
+  document.getElementById('AW3').setAttribute("value","1");
+  document.getElementById('AW8').setAttribute("value","3");
+  document.getElementById('AW12').setAttribute("value","4");
+  document.getElementById('AW15').setAttribute("value","5");
+  document.getElementById('AWrow').style.color = 'red';
 }
