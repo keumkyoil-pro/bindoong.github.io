@@ -241,21 +241,30 @@
           </td>
         </tr>
         <tr>
-          <td>Ambulation/Wheelchair<br>(보행/휠체어)</td>
-          <td>
-            <input type="radio" name="AW" value="0" checked>0
+          <td>Ambulation/Wheelchair<br>
+            <input id='AWrow' type="button" value="휠체어사용" onclick="
+            Wheelchair();
+            ">
           </td>
           <td>
-            <input type="radio" name="AW" value="3" >3(1)
+            <input id='AW0' type="radio" name="AW"
+            value="0" checked>0
           </td>
           <td>
-            <input type="radio" name="AW" value="8" >8(3)
+            <input id='AW3' type="radio" name="AW"
+            value="3" >3(1)
           </td>
           <td>
-            <input type="radio" name="AW" value="12" >12(4)
+            <input id='AW8' type="radio" name="AW"
+            value="8" >8(3)
           </td>
           <td>
-            <input type="radio" name="AW" value="15" >15(5)
+            <input id='AW12' type="radio" name="AW"
+            value="12">12(4)
+          </td>
+          <td>
+            <input id='AW15' type="radio" name="AW"
+            value="15" >15(5)
           </td>
           <td>
             <input type="text" name="acomment" style="width:90%; border:0;">
@@ -297,8 +306,8 @@
         </tr>
     </table>
   </form>
-
-    <br>
+<p>* 휠체어사용 버튼이 빨간색일 때 : 휠체어점수 적용
+* 휠체어사용 버튼이 검정색일 때 : 보행점수 적용</P>
 
     <table class="table3" border="1" >
         <tr>
@@ -327,5 +336,5 @@
         </tr>
     </table>
     <br>
-    <div align="right" style="color:rgb(34, 133, 87);">Ver 1.0&nbsp;&nbsp;</div>
+    <div align="right" style="color:rgb(34, 133, 87);">Ver 1.1&nbsp;&nbsp;</div>
     <div align="right" style="color:purple;"> made by bindoongbindoong&nbsp;&nbsp;</div>
