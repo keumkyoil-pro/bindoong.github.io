@@ -1,0 +1,60 @@
+h3 {
+  text-align: center;
+  text-shadow: 2px 2px 2px rgb(199, 199, 199);
+}
+
+body {
+  font-weight: bold;
+}
+
+table {
+  width: 850px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  text-align: center;
+}
+td input:focus {
+  outline: none;
+}
+
+table.table1 {
+  height: 60px;
+}
+table.table2 {
+  height: 650px;
+}
+
+table.table1 td:nth-child(2n-1) {
+  background-color: rgb(226, 199, 172);
+}
+table.table2 td:first-child {
+  background-color: rgb(226, 199, 172);
+}
+table.table2 tr:first-child {
+  background-color: rgb(226, 199, 172);
+}
+#towhite1 {
+  background-color: white;
+}
+#towhite2 {
+  background-color: white;
+}
+#towhite3 {
+  background-color: white;
+}
+#towhite4 {
+  background-color: white;
+}
+#towhite5 {
+  background-color: white;
+}
+#towhite6 {
+  background-color: white;
+}
+#lastline {
+  background-color: rgb(167, 164, 224);
+}
