@@ -1,0 +1,288 @@
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset-"utf-8">
+    <title>MMSE 자동계산(Mini-Mental State Examination)
+    </title>
+    <link rel="stylesheet" href="MMSE.css">
+    <script src="MMSE.js"></script>
+  </head>
+  <body>
+
+      <h3>MMSE-K (Mini-Mental State Examination) 자동계산프로그램</h3>
+
+      <table class="table1" border="1">
+          <colgroup>
+              <col style="width:12%">
+              <col style="width:21%">
+              <col style="width:12%">
+              <col style="width:21%">
+              <col style="width:12%">
+              <col style="width:21%">
+          </colgroup>
+          <tr>
+              <td>성&nbsp;&nbsp;명</td>
+              <td>
+                <input type="text" name="name" style="width:90%; border:0;">
+              </td>
+              <td>등록번호</td>
+              <td>
+                <input type="text" name="number" style="width:90%; border:0;">
+              </td>
+              <td>생년월일</td>
+              <td>
+                <input type="text" name="birth" style="width:90%; border:0;">
+              </td>
+          </tr>
+          <tr>
+              <td>진료과</td>
+              <td>
+                <input type="text" name="medipart" style="width:90%; border:0;">
+              </td>
+              <td>검사일시</td>
+              <td>
+                <input type="text" name="date" style="width:90%; border:0;">
+              </td>
+              <td>검사자</td>
+              <td>
+                <input type="text" name="therapist" style="width:90%; border:0;">
+              </td>
+          </tr>
+      </table>
+
+      <br>
+
+  <form>
+    <table class ="table2" border="1">
+      <colgroup>
+          <col style="width:18%">
+          <col style="width:33%">
+          <col style="width:33%">
+          <col style="width:16%">
+      </colgroup>
+          <tr> <! 두번째테이블 첫줄>
+            <td>인지영역</td>
+            <td>지시문</td>
+            <td>세부점수</td>
+            <td>항목별점수</td>
+          </tr>
+          <tr> <! 두번째테이블 두번쩨줄>
+            <td rowspan="3">지남력
+            </td>
+            <td>오늘의 날짜를 말해주세요
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); orientation1score()"
+                name="orientation1">년
+              <input type="checkbox"
+                onchange="totalscore(); orientation1score()"
+                name="orientation1">월
+              <input type="checkbox"
+                onchange="totalscore(); orientation1score()"
+                name="orientation1">일
+              <input type="checkbox"
+                onchange="totalscore(); orientation1score()"
+                name="orientation1">요일
+              <input type="checkbox"
+                onchange="totalscore(); orientation1score()"
+                name="orientation1">계절
+            </td>
+            <td id= "orientation1_end">0/5
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 세번째줄>
+            <td class="towhite" id="towhite1">당신의 주소를 말해주세요
+            </td>
+            <td>
+              <input type="checkbox"
+              onchange="totalscore(); orientation2score()"
+              name="orientation2">도(시)
+              <input type="checkbox"
+              onchange="totalscore(); orientation2score()"
+              name="orientation2">군(구)
+              <input type="checkbox"
+              onchange="totalscore(); orientation2score()"
+              name="orientation2">면(동)<br>
+              <input type="checkbox"
+              onchange="totalscore(); orientation2score()"
+              name="orientation2">번지(아파트동호수)
+            </td>
+            <td  id= "orientation2_end">0/4
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 네번째줄>
+            <td id="towhite2">여기는 무엇을 하는 곳입니까?
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); orientation3score()"
+                name="orientation3">ex)마당, 안방, 화장실, 치료실등
+            </td>
+            <td id= "orientation3_end">0/1
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 다섯번째줄>
+            <td>기억등록
+            </td>
+            <td>다음의 물건이름을 기억해주세요
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); memoryenrollscore()"
+                name="memoryenroll">나무
+              <input type="checkbox"
+                onchange="totalscore(); memoryenrollscore()"
+                name="memoryenroll">자동차
+              <input type="checkbox"
+                onchange="totalscore(); memoryenrollscore()"
+                name="memoryenroll">모자
+            </td>
+            <td id= "memoryenroll_end">0/3
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 여섯번째줄>
+            <td>기억회상
+            </td>
+            <td>(5분뒤)기억하신 단어를 말씀해주세요
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); memoryrecallscore()"
+                name="memoryrecall">나무
+              <input type="checkbox"
+                onchange="totalscore(); memoryrecallscore()"
+                name="memoryrecall">자동차
+              <input type="checkbox"
+                onchange="totalscore(); memoryrecallscore()"
+                name="memoryrecall">모자
+            </td>
+            <td id= "memoryrecall_end">0/3
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 일곱번째줄>
+            <td>주의집중 및 계산
+            </td>
+            <td>다음의 계산의 값을 말해주세요
+            </td>
+            <td>100-7=
+              <input type="checkbox"
+                onchange="totalscore(); calculationscore()"
+                name="calculation"> -7=
+              <input type="checkbox"
+                onchange="totalscore(); calculationscore()"
+                name="calculation"> -7=
+              <input type="checkbox"
+                onchange="totalscore(); calculationscore()"
+                name="calculation"><br>-7=
+              <input type="checkbox"
+                onchange="totalscore(); calculationscore()"
+                name="calculation"> -7=
+              <input type="checkbox"
+                onchange="totalscore(); calculationscore()"
+                name="calculation">
+            </td>
+            <td id= "calculation_end">0/5
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 여덞번째줄>
+            <td rowspan="4">언어기능
+            </td>
+            <td>가리키는 물건의 이름을 말해주세요
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); language1score()"
+                name="language1">연필
+              <input type="checkbox"
+                onchange="totalscore(); language1score()"
+                name="language1">시계
+            </td>
+            <td id= "language1_end">0/2
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 아홉번째줄>
+            <td id="towhite3">오른손으로 종이를 집이서 반으로 접어서 무릎 위에 놓아주세요(3단계명령)
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); language2score()"
+                name="language2">오른손으로 집음
+              <input type="checkbox"
+                onchange="totalscore(); language2score()"
+                name="language2">반으로 접음<br>
+              <input type="checkbox"
+                onchange="totalscore(); language2score()"
+                name="language2">무릎위에 놓기
+            </td>
+            <td id= "language2_end">0/3
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 열번째줄>
+            <td id="towhite4">그림을 보고 따라 그려주세요
+            </td>
+            <td>
+              <input type="checkbox"
+              onchange="totalscore(); language3score()"
+              name="language3">5각형 2개 겹쳐그리기
+            </td>
+            <td id= "language3_end">0/1
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 열한번째줄>
+            <td id="towhite5">듣고 따라서 말해주세요
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); language4score()"
+                name="language4">간장 공장 공장장
+            </td>
+            <td id= "language4_end">0/1
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 열두번째줄>
+            <td rowspan="2">이해 및 판단
+            </td>
+            <td>옷을 왜 빨아(세탁)서 입습니까?
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); judgement1score()"
+                name="judgement1">더러워서
+            </td>
+            <td id= "judgement1_end">0/1
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 열세번째줄>
+            <td id="towhite6">길에서 남의 주민등록증을 주웠을 때 어떻게 하면, 쉽게 주인에게 되돌려 줄 수 있겠습니까?
+            </td>
+            <td>
+              <input type="checkbox"
+                onchange="totalscore(); judgement2score()"
+                name="judgement2">우체통
+            </td>
+            <td id= "judgement2_end">0/1
+            </td>
+          </tr>
+          <tr> <! 두번째테이블 열네번째줄>
+            <td>전체점수
+            </td>
+            <td id="lastline">
+              <input type="reset" value="점수초기화"
+                onclick="reset_a();
+              ">&nbsp;&nbsp;&nbsp;
+              <input type="button" value="MMSE 점수"
+                onclick="mmse_score();
+              ">
+            </td>
+            <td colspan="2" id="Globalscore">0/30
+            </td>
+          </tr>
+    </table>
+  </form>
+  <div align="right" style="color:rgb(34, 133, 87);">Ver 1.0&nbsp;&nbsp;</div>
+  <div align="right" style="color:purple;"> made by bindoongbindoong&nbsp;&nbsp;</div>
+  </body>
+
+</html>
