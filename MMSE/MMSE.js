@@ -80,7 +80,16 @@ function judgement2score() {
 function mmse_score() {
   var GlobalScore = document.getElementById('Globalscore');
   GlobalScore.style.backgroundColor = 'rgb(254, 240, 58)';
+  var total = document.querySelectorAll('input[type="checkbox"]:checked').length;
+    if(total >= 24) {
+        document.getElementById('normal').style.backgroundColor = 'rgb(254, 240, 58)';
+    } else if (total >= 18) {
+        document.getElementById('mild').style.backgroundColor = 'rgb(254, 240, 58)';
+    } else {
+        document.getElementById('moderate').style.backgroundColor = 'rgb(254, 240, 58)';
+    }
 }
+
 function reset_a() {
   var GlobalScore = document.getElementById('Globalscore');
   GlobalScore.innerHTML = "0/30"
@@ -97,4 +106,51 @@ function reset_a() {
   document.getElementById("language4_end").innerHTML= "0/1"
   document.getElementById("judgement1_end").innerHTML= "0/1"
   document.getElementById("judgement2_end").innerHTML= "0/1"
+
+  document.getElementById("normal").style.backgroundColor = 'white';
+  document.getElementById("mild").style.backgroundColor = 'white';
+  document.getElementById("moderate").style.backgroundColor = 'white';
+  document.getElementById("orientation1_end").style.backgroundColor = 'white';
+  document.getElementById("calculation_end").style.backgroundColor = 'white';
+  document.getElementById("language1_end").style.backgroundColor = 'white';
+}
+
+function correction() {
+  var total = document.querySelectorAll('input[type="checkbox"]:checked').length;
+  var orientation1_1 =
+  document.querySelectorAll('input[name="orientation1"]:checked').length;
+  var calculation_1 =
+  document.querySelectorAll('input[name="calculation"]:checked').length;
+  var language1_1 =
+  document.querySelectorAll('input[name="language1"]:checked').length;
+
+    if(orientation1_1 <= 4) {
+        var cor_orientaion = orientation1_1 + 1;
+        var result_orientation = cor_orientaion + "/5"
+        document.getElementById("orientation1_end").innerHTML =  result_orientation;
+        document.getElementById("orientation1_end").style.backgroundColor = 'rgb(203, 110, 118)';
+        var total1 = total + 1;
+        var result_total = total1 + "/30"
+        document.getElementById("Globalscore").innerHTML = result_total;
+    }
+    if(calculation_1 <= 4) {
+        var cor_calculation = calculation_1 + 1;
+        var result_calculation = cor_calculation + "/5"
+        document.getElementById("calculation_end").innerHTML =  result_calculation;
+        document.getElementById("calculation_end").style.backgroundColor = 'rgb(203, 110, 118)';
+        var total2 = total1 + 1;
+        var result_total = total2 + "/30"
+        document.getElementById("Globalscore").innerHTML = result_total;
+    }
+    if(language1_1 <= 1) {
+        var cor_language = language1_1 + 1;
+        var result_language = cor_language + "/2"
+        document.getElementById("language1_end").innerHTML =  result_language;
+        document.getElementById("language1_end").style.backgroundColor = 'rgb(203, 110, 118)';
+        var total3 = total2 + 1;
+        var result_total = total3 + "/30"
+        document.getElementById("Globalscore").innerHTML = result_total;
+    }
+    document.getElementById("Globalscore").style.backgroundColor = 'rgb(203, 110, 118)';
+
 }
