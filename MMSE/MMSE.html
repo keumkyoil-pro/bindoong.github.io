@@ -271,17 +271,40 @@
             <td id="lastline">
               <input type="reset" value="점수초기화"
                 onclick="reset_a();
-              ">&nbsp;&nbsp;&nbsp;
+              ">
               <input type="button" value="MMSE 점수"
                 onclick="mmse_score();
+              ">
+              <input type="button" value="무학보정"
+                onclick="correction();
               ">
             </td>
             <td colspan="2" id="Globalscore">0/30
             </td>
           </tr>
     </table>
+  <br>
+
+    <table class="table3" border="1" >
+        <tr>
+            <td>MMSE-K score</td>
+            <td>치매의심범주</td>
+        </tr>
+        <tr>
+            <td>24점이상</td>
+            <td id="normal">정상</td>
+        </tr>
+        <tr>
+            <td>18-23</td>
+            <td id="mild">경도인지장애</td>
+        </tr>
+        <tr>
+            <td>0-17</td>
+            <td id="moderate">중증인지장애</td>
+        </tr>
+    </table>
   </form>
-  <div align="right" style="color:rgb(34, 133, 87);">Ver 1.0&nbsp;&nbsp;</div>
+  <div align="right" style="color:rgb(34, 133, 87);">Ver 1.1&nbsp;&nbsp;</div>
   <div align="right" style="color:purple;"> made by bindoongbindoong&nbsp;&nbsp;</div>
   </body>
 
